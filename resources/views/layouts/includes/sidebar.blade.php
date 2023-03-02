@@ -39,7 +39,7 @@
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="{{ route('customer.index') }}">Customer</a>
+                 
                     <a class="collapse-item" href="{{ route('department.index') }}">Department</a>
                     <a class="collapse-item" href="{{ route('priority.index') }}">Priority</a>
                 </div>
@@ -57,6 +57,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 @if (Auth::user()->role == 'guest')
                     <a class="collapse-item" href="{{ route('ticketing.index') }}">Ticketing</a>
+                    <a class="collapse-item" href="{{ route('customer.index') }}">Customer</a>
 
                 @elseif (Auth::user()->role == 'admin')
                     <a class="collapse-item" href="{{ route('ticketing.index') }}">Ticketing</a>
@@ -66,6 +67,8 @@
                     <a class="collapse-item" href="{{ route('laporan') }}">Laporan</a>
 
                 @endif
+
+
 
             </div>
         </div>

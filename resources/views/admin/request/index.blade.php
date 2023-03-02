@@ -1,75 +1,70 @@
 @extends('layouts.admin1')
 
 @section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                @include('layouts/_flash')
+                <div class="card">
+                    <div class="card-header">
+                    Customer
+                        <a href="{{ route('request.create') }}" class="btn btn-sm btn-primary" style="float: right">
+                            Tambah Data
+                        </a>
+                    </div>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header" style="background-color: #d3d3d3">TAMBAH CUSTOMER</div>
-                <div class="card-body">
-                    <form class="form-horizontal" action="{{ route('customer.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <strong>Nama customer</strong>
-                                <input type="text" name="name" class="form-control">
-                                @error('nama_customer')
-                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <strong>Email</strong>
-                                <input type="text" name="email" class="form-control">
-                                @error('email_customer')
-                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <strong>No Telepon</strong>
-                                <input type="text" name="no_telp" class="form-control">
-                                @error('notelp_customer')
-                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <strong>Alamat</strong>
-                                <textarea type="textarea" class="form-control" name="alamat"></textarea>
-                                @error('alamat_customer')
-                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <strong>No Telepon</strong>
-                                <input type="text" name="no_telp" class="form-control">
-                                @error('notelp_customer')
-                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <strong>Tanggal Request</strong>
-                                <input type="date" name="no_telp" class="form-control">
-                                @error('notelp_customer')
-                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <strong>Tanggal Selesai</strong>
-                                <input type="date" name="no_telp" class="form-control">
-                                @error('notelp_customer')
-                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="col card-header">
-                                <button class="btn btn-primary btn-sm" type="submit"><span class="fa fa-save "></span>&nbsp;{{__('Simpan')}}</button>
-
-                                <a class="btn btn-primary btn-sm float-right" href="{{ route('customer.index') }}" enctype="multipart/form-data">Back</a>
-                            </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table align-middle" id="dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Customer</th>
+                                        <th>Email</th>
+                                        <th>No Telepon</th>
+                                        <th>Tanggal Request</th>
+                                        <th>Tanggal Selesai</th>
+                                        <th>Request Perbaikan</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php $no = 1; @endphp
+                                    @foreach ($request as $data)
+                                        <tr>
+                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $data->nama_customer ?? ''}}</td>
+                                            <td>{{ $data->email_customer}}</td>
+                                            <td>{{ $data->notelp_customer}}</td>
+                                            <td>{{ $data->tanggal_request}}</td>
+                                            <td>{{ $data->tanggal_selesai}}</td>
+                                            <td>{{ $data->request_perbaikan}}</td>
+                                           
+                                            <td>
+                                                <form action="{{ route('request.destroy', $data->id) }}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <a href="{{ route('request.edit', $data->id) }}"
+                                                        class="btn btn-sm btn-outline-success">
+                                                        Edit
+                                                    </a> |
+                                                    <a href="{{ route('request.show', $data->id) }}"
+                                                        class="btn btn-sm btn-outline-warning">
+                                                        Show
+                                                    </a> |
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger"
+                                                        onclick="return confirm('Apakah Anda Yakin?')">Delete
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

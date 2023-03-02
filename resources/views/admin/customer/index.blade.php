@@ -22,7 +22,9 @@
                                         <th>Nama Customer</th>
                                         <th>Email</th>
                                         <th>No Telepon</th>
-                                        <th>Alamat</th>
+                                        <th>Tanggal Request</th>
+                                        <th>Tanggal Selesai</th>
+                                        <th>Deskripsi</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -34,8 +36,10 @@
                                             <td>{{ $data->name}}</td>
                                             <td>{{ $data->email}}</td>
                                             <td>{{ $data->no_telp}}</td>
-                                            <td>{{ $data->alamat}}</td>
-
+                                            <td>{{ $data->tanggal_request}}</td>
+                                            <td>{{ $data->tanggal_selesai}}</td>
+                                            <td>{{ $data->deskripsi}}</td>
+                                            
                                             <td>
                                                 <form action="{{ route('customer.destroy', $data->id) }}" method="post">
                                                     @csrf

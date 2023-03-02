@@ -13,6 +13,7 @@ use App\Http\Controller\ProjectCustomerController;
 use App\Http\Controller\JenisrequestController;
 use App\Http\Controllers\ChartJsController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\RequestcustomerController;
 // use App\Http\Controller\ProfileController;
 // use App\Http\Controller\SantriController;
 
@@ -83,7 +84,7 @@ Route::group(['middleware' => ['auth', 'isAdmin:admin']], function(){
     // });
     // Route::resource('/all-user',UserController::class);
 
-    Route::resource('/customer','CustomerController');
+  
     Route::resource('/department','DepartmentController');
     Route::resource('/priority','PriorityController');
 
@@ -98,7 +99,7 @@ Route::group(['middleware' => ['auth', 'isAdmin:admin']], function(){
 
     Route::resource('/profile',ProfileController::class);
     Route::resource('/chartjs',ChartJsController::class);
-    Route::resource('/request',RequestController::class);
+    Route::resource('/request',RequestcustomerController::class);
 
 
 });
@@ -109,11 +110,9 @@ Route::group(['middleware' => ['auth', 'isAdmin:admin']], function(){
     Route::group(['middleware' => ['auth', 'isAdmin:guest,admin']], function(){
 
         Route::resource('/ticketing',TicketingController::class);
-
+        Route::resource('/customer','CustomerController');
         
-Route::get('/', function () {
-    return view('/auth/register');
-});
+ 
 
         // Route::get('/userit', function () {
         //     return view('layouts.userit');
@@ -132,6 +131,9 @@ Route::get('/', function () {
 
      });
 
+     Route::group(['middleware' => ['auth', 'isAdmin:guest']], function(){
+        Route::resource('/request',RequestcustomerController::class);
+    });
 
 Addchat::routes();
 

@@ -24,7 +24,7 @@
                             <div class="form-group">
                            
                              <div class="form-group">
-                                <strong>Change Request</strong>
+                                <strong>Jenis Request</strong>
                                 <input type="text" name="name" class="form-control">
                                 @error('name')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

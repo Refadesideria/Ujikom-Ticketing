@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header" style="background-color: #d3d3d3">TAMBAH CUSTOMER</div>
+                
                 <div class="card-body">
                     <form class="form-horizontal" action="{{ route('customer.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -33,9 +33,23 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <strong>Alamat</strong>
-                                <textarea type="textarea" class="form-control" name="alamat"></textarea>
-                                @error('alamat')
+                                <strong>Tanggal Request</strong>
+                                <input type="date" name="tanggal_request" class="form-control">
+                                @error('tanggal_request')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <strong>Tanggal Selesai</strong>
+                                <input type="date" name="tanggal_selesai" class="form-control">
+                                @error('tanggal_selesai')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <strong>Dekripsi</strong>
+                                <textarea type="textarea" class="form-control" name="deskripsi"></textarea>
+                                @error('deskripsi')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>

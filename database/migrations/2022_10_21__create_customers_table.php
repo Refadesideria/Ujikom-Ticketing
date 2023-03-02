@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('no_telp');
-            $table->string('alamat');
+            $table->date('tanggal_request');
+            $table->date('tanggal_selesai');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }
