@@ -24,6 +24,13 @@
                                     <input type="text" name="name" value="{{$jenisrequest->name}}" id="jenisrequest" class="form-control" onkeyup="javascript:this.value=this.value.toUpperCase()" required>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="jenisrequest">{{__('Nama PIC')}}</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="nama_pic" value="{{$jenisrequest->nama_pic}}" id="jenisrequest" class="form-control" onkeyup="javascript:this.value=this.value.toUpperCase()" required>
+                                </div>
+                            </div>
                             <br>
                             <button class="btn btn-primary btn-sm" type="submit"><span class="fa fa-save "></span>&nbsp;{{__('Save')}}</button>
                         </div>

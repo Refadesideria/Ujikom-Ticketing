@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('kode');
             $table->string('name');
+            $table->string('nama_pic');
             $table->timestamps();
         });
     }

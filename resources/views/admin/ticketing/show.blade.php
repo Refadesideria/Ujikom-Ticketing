@@ -60,14 +60,9 @@
                         <th scope="col">Tanggal selesai</th>
                         <th scope="col">{{ $ticketings->tanggal_selesai }}</th>
                         </tr>
-                        <th scope="col">Nama PIC</th>
-                        <th scope="col">{{ $ticketings->nama_pic }}</th>
-                        </tr>
-                        <th scope="col">Tanggal Request</th>
+                        <th scope="col">Deskrispi</th>
                         <th scope="col">{{ $ticketings->deskripsi }}</th>
                         </tr>
-
-                       </thead>
 
                     <tbody>
                  </tr>

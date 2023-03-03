@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('no_telp');
             $table->date('tanggal_request');
             $table->date('tanggal_selesai');
+            $table->string('request_perbaikan');
             $table->text('deskripsi');
             $table->timestamps();
         });

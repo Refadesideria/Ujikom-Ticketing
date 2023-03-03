@@ -1,6 +1,7 @@
 @extends('layouts.admin1')
 
 @section('content')
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -8,11 +9,12 @@
                 <div class="card">
                     <div class="card-header">
                     Customer
+                    @if (Auth::user()->role == 'guest')
                         <a href="{{ route('customer.create') }}" class="btn btn-sm btn-primary" style="float: right">
                             Tambah Data
                         </a>
                     </div>
-
+                   @endif
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table align-middle" id="dataTable">
@@ -24,8 +26,11 @@
                                         <th>No Telepon</th>
                                         <th>Tanggal Request</th>
                                         <th>Tanggal Selesai</th>
+                                        <th>Request Perbaikan</th>
                                         <th>Deskripsi</th>
+                                        @if (Auth::user()->role == 'guest')
                                         <th>Action</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -36,11 +41,13 @@
                                             <td>{{ $data->name}}</td>
                                             <td>{{ $data->email}}</td>
                                             <td>{{ $data->no_telp}}</td>
+                                            <td>{{ $data->request_perbaikan}}</td>
                                             <td>{{ $data->tanggal_request}}</td>
                                             <td>{{ $data->tanggal_selesai}}</td>
                                             <td>{{ $data->deskripsi}}</td>
                                             
                                             <td>
+                                                @if (Auth::user()->role == 'guest')
                                                 <form action="{{ route('customer.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
@@ -52,9 +59,11 @@
                                                         class="btn btn-sm btn-outline-warning">
                                                         Show
                                                     </a> |
+                                                   
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
                                                         onclick="return confirm('Apakah Anda Yakin?')">Delete
                                                     </button>
+                                                    @endif
                                                 </form>
                                             </td>
                                         </tr>
@@ -67,4 +76,5 @@
             </div>
         </div>
     </div>
+  
 @endsection

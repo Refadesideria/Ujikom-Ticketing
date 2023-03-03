@@ -130,47 +130,7 @@
                                     </span>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label for="">Tanggal Request</label>
-                                <input type="date" name="tanggal_request"
-                                    class="form-control @error('tanggal_request') is-invalid @enderror" id=""
-                                    value="{{ $ticketings->tanggal_request }}">
-                                @error('tanggal_request')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="">Tanggal Selesai</label>
-                                <input type="date" name="tanggal_selesai"
-                                    class="form-control @error('tanggal_selesai') is-invalid @enderror" id=""
-                                    value="{{ $ticketings->tanggal_selesai }}">
-                                @error('tanggal_selesai')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="">Nama PIC</label>
-                                <input type="text" name="nama_pic"
-                                    class="form-control @error('nama_pic') is-invalid @enderror" id=""
-                                    value="{{ $ticketings->nama_pic }}">
-                                @error('nama_pic')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="">Deskripsi</label>
-                                <textarea type="textarea" class="form-control" name="deskripsi"></textarea>
-                                @error('deskripsi')
-                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            </div>
+                          
 
 
 

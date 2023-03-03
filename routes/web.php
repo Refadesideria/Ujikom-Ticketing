@@ -111,6 +111,7 @@ Route::group(['middleware' => ['auth', 'isAdmin:admin']], function(){
 
         Route::resource('/ticketing',TicketingController::class);
         Route::resource('/customer','CustomerController');
+            // Route::get('ticketing/{ticketing}/dtl', 'TicketingController@dtl')->name('ticketing.dtl');
         
  
 

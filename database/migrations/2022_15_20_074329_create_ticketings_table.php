@@ -32,10 +32,6 @@ return new class extends Migration
                 ->on('priorities');
             $table->foreign('id_jenisrequest')->references('id')
                 ->on('jenisrequests');
-            $table->date('tanggal_request');
-            $table->date('tanggal_selesai');
-            $table->string('nama_pic');
-            $table->text('deskripsi');
             $table->timestamps();
         });
 

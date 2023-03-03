@@ -46,10 +46,7 @@ class TicketingController extends Controller
             'id_department' => 'required',
             'nama_stat' => 'required',
             'id_priority' => 'required',
-            'tanggal_request' => 'required',
-            'tanggal_selesai' => 'required',
-            'nama_pic' => 'required',
-            'deskripsi' => 'required',
+           
 
         ];
         $messages = [
@@ -61,10 +58,7 @@ class TicketingController extends Controller
             'nama_stat.required' => 'nama_stat harus di isi!',
             'id_priority.required' => ' id_priority harus di isi!',
             'id_jenisrequest.required' => ' id_jenisrequest harus di isi!',
-            'tanggal_request.required' => ' boleh tidak di isi!',
-            'tanggal_selesai.required' => ' boleh tidak di isi!',
-            'nama_pic.required' => ' boleh tidak di isi!',
-            'deskripsi.required' => ' boleh tidak di isi!',
+          
         ];
 
         // $validation = Validator::make($request->all(), $rules, $messages);
@@ -80,10 +74,7 @@ class TicketingController extends Controller
         $ticketings->id_department = $request->id_department;
         $ticketings->id_priority = $request->id_priority;
         $ticketings->id_jenisrequest = $request->id_jenisrequest;
-        $ticketings->tanggal_request = $request->tanggal_request;
-        $ticketings->tanggal_selesai = $request->tanggal_selesai;
-        $ticketings->nama_pic = $request->nama_pic;
-        $ticketings->deskripsi = $request->deskripsi;
+       
 
         $ticketings->save();
         // $ticketings->detail()->attach($request->detail);
@@ -126,11 +117,7 @@ class TicketingController extends Controller
             'id_department' => 'required',
             'nama_stat' => 'required',
             'id_priority' => 'required',
-            'tanggal_request' => 'nullable',
-            'tanggal_selesai' => 'nullable',
-            'nama_pic' => 'nullable',
-            'deskripsi' => 'nullable',
-
+          
         ];
         $messages = [
             'id_jenisrequest.required' => 'id_jenisrequest harus di isi!',
@@ -141,10 +128,7 @@ class TicketingController extends Controller
             'nama_stat.required' => 'nama_stat harus di isi!',
             'id_priority.required' => ' id_priority harus di isi!',
             'id_jenisrequest.required' => ' id_jenisrequest harus di isi!',
-            'tanggal_request.required' => ' boleh tidak di isi!',
-            'tanggal_selesai.required' => ' boleh tidak di isi!',
-            'nama_pic.required' => ' boleh tidak di isi!',
-            'deskripsi.required' => ' boleh tidak di isi!',
+         
         ];
 
         // $validation = Validator::make($request->all(), $rules, $messages);
@@ -177,72 +161,7 @@ class TicketingController extends Controller
         $department = Department::all();
         return view('admin.ticketing.detaildata', compact('ticketings','jenisrequest', 'customer', 'priority', 'department'));
     }
-    public function store_detail(Request $request,Ticketing $ticketings)
-    {
-        $rules = [
-            'id_jenisrequest' => 'required', 'string', 'max:255',
-            'id_customer' => 'required', 'string', 'max:255',
-            'cover' => 'required',
-            'nama_subject' => 'required',
-            'id_department' => 'required',
-            'nama_stat' => 'required',
-            'id_priority' => 'required',
-            'tanggal_request' => 'nullable',
-            'tanggal_selesai' => 'nullable',
-            'nama_pic' => 'nullable',
-            'deskripsi' => 'nullable',
-
-
-        ];
-        $messages = [
-            'id_jenisrequest.required' => 'id_jenisrequest harus di isi!',
-            'id_customer.required' => 'id_customer harus di isi!',
-            'cover.required' => 'cover harus di isi !',
-            'nama_subject.required' => 'nama_subject harus di isi!',
-            'id_department.required' => 'id_department harus di isi!',
-            'nama_stat.required' => 'nama_stat harus di isi!',
-            'id_priority.required' => ' id_priority harus di isi!',
-            'id_jenisrequest.required' => ' id_jenisrequest harus di isi!',
-            'tanggal_request.required' => ' boleh tidak di isi!',
-            'tanggal_selesai.required' => ' boleh tidak di isi!',
-            'nama_pic.required' => ' boleh tidak di isi!',
-            'deskripsi.required' => ' boleh tidak di isi!',
-        ];
-
-        // $validation = Validator::make($request->all(), $rules, $messages);
-        // if ($validation->fails()) {
-        //     Alert::error('data yang anda input ada kesalahan', 'Oops!')->persistent("Ok");
-        //     return back()->withErrors($validation)->withInput();
-        // }
-
-        $ticketings = new Ticketing();
-        // $ticketings->id_jenisrequest = $request->id_jenisrequest;
-        // $ticketings->nama_subject = $request->nama_subject;
-        // $ticketings->nama_stat = $request->nama_stat;
-        // $ticketings->id_customer = $request->id_customer;
-        // $ticketings->id_department = $request->id_department;
-        // $ticketings->id_priority = $request->id_priority;
-        // $ticketings->id_jenisrequest = $request->id_jenisrequest;
-        $ticketings->tanggal_request = $request->tanggal_request;
-        $ticketings->tanggal_selesai = $request->tanggal_selesai;
-        $ticketings->nama_pic = $request->nama_pic;
-        $ticketings->deskripsi = $request->deskripsi;
-
-
-        $ticketings->save();
-        // $ticketings->detail()->attach($request->detail);
-        Alert::success('Done', 'Data berhasil dibuat')->autoClose(2000);
-        return redirect()->route('ticketing.detail_show', $ticketings->id);
-
-    }
-    public function detail_show($id)
-    {
-        $ticketings = Ticketing::findOrFail($id);
-        return view('admin.ticketing.show',compact('ticketings'));
-
-    }
-
-
+  
 
 
     public function destroy($id)

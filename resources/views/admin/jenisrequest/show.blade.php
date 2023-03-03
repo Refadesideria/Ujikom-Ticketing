@@ -14,8 +14,12 @@
                             <input type="text" class="form-control " name="name" value="{{ $jenisrequest->kode }}" readonly>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Change Request</label>
+                            <label class="form-label">Jenis Request</label>
                             <input type="text" class="form-control " name="name" value="{{ $jenisrequest->name }}" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nama PIC</label>
+                            <input type="text" class="form-control " name="name" value="{{ $jenisrequest->nama_pic }}" readonly>
                         </div>
 
                         <div class="mb-3">

@@ -68,11 +68,10 @@
                             <div class="form-group">
                                 <label class="form-label">Status</label>
                                 <select class="form-control @error('nama_stat') is-invalid @enderror" name="nama_stat">
-
                                     <option value="open">Open</option>
-                                    {{-- <option value="on progress">On Progress</option>
+                                    <option value="on progress">On Progress</option>
                                     <option value="hold">Hold</option>
-                                    <option value="close">Close</option> --}}
+                                    <option value="close">Close</option>
                                 </select>
                                 @error('nama_stat')
                                     <span class="invalid-feedback" role="alert">
@@ -110,44 +109,7 @@
                                     </span>
                                 @enderror
                             </div> --}}
-                            <div class="form-group">
-                                <label for="">  Tanggal Request</label>
-                                <input type="date" name="tanggal_request"
-                                    class="form-control @error('tanggal_request') is-invalid @enderror" id="">
-                                @error('tanggal_request')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="">Tanggal Selesai</label>
-                                <input type="date" name="tanggal_selesai"
-                                    class="form-control @error('tanggal_selesai') is-invalid @enderror" id="">
-                                @error('tanggal_selesai')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="">Nama PIC</label>
-                                <input type="text" name="nama_pic"
-                                    class="form-control @error('nama_pic') is-invalid @enderror" id="">
-                                @error('nama_pic')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="">Deskripsi</label>
-                                <textarea type="textarea" class="form-control" name="deskripsi"></textarea>
-                                @error('deskripsi')
-                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            </div>
+                           
                                 <div class="form-group">
                                     <button class="btn btn-primary btn-sm" type="submit"><span class="fa fa-save "></span>&nbsp;{{__('Simpan')}}</button>
                                 </button>

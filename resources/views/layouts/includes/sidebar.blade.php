@@ -42,6 +42,7 @@
                  
                     <a class="collapse-item" href="{{ route('department.index') }}">Department</a>
                     <a class="collapse-item" href="{{ route('priority.index') }}">Priority</a>
+                    <a class="collapse-item" href="{{ route('customer.index') }}">Customer</a>
                 </div>
             </div>
         </li>

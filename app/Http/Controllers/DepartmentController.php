@@ -79,7 +79,7 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, Department $department)
     {
         $request->validate([
             'name' => 'required',

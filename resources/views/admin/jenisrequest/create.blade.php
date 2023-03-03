@@ -20,13 +20,19 @@
                                     </span>
                                 @enderror
                             </div>
-
-                            <div class="form-group">
                            
                              <div class="form-group">
                                 <strong>Jenis Request</strong>
                                 <input type="text" name="name" class="form-control">
                                 @error('name')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <strong>Nama PIC</strong>
+                                <input type="text" name="nama_pic" class="form-control">
+                                @error('nama_pic')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>

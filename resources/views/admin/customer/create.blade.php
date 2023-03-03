@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -29,6 +30,13 @@
                                 <strong>No Telepon</strong>
                                 <input type="text" name="no_telp" class="form-control">
                                 @error('no_telp')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <strong>Request Perbaikan</strong>
+                                <input type="text" name="request_perbaikan" class="form-control">
+                                @error('request_perbaikan')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -65,4 +73,5 @@
         </div>
     </div>
 </div>
+
 @endsection

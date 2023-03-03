@@ -42,11 +42,13 @@ class JenisrequestController extends Controller
         $rules = [
             'kode' => 'required', 'string', 'max:255',
             'name' => 'required', 'string', 'max:255',
+            'nama_pic' => 'required',
 
         ];
         $messages = [
             'kode.required' => 'Kode harus di isi!',
             'name.required' => 'Name harus di isi!',
+            'nama_pic.required' => 'harus di isi!',
 
         ];
         //     $validation = Validator::make($request->all(), $rules, $messages);
@@ -58,6 +60,8 @@ class JenisrequestController extends Controller
         $jenisrequest = new Jenisrequest();
         $jenisrequest->kode = $request->kode;
         $jenisrequest->name = $request->name;
+        $jenisrequest->nama_pic = $request->nama_pic;
+        
 
         $jenisrequest->save();
         return redirect()->route('jenisrequest.index')->with('success','Data Berhasil di Tambah');
@@ -99,11 +103,13 @@ class JenisrequestController extends Controller
         $rules = [
             'kode' => 'required', 'string', 'max:255',
             'name' => 'required', 'string', 'max:255',
+            'nama_pic' => 'required',
 
         ];
         $messages = [
             'kode.required' => 'Kode harus di isi!',
             'name.required' => 'Name harus di isi!',
+            'nama_pic.required' => 'harus di isi!',
 
         ];
         //     $validation = Validator::make($request->all(), $rules, $messages);
@@ -114,7 +120,7 @@ class JenisrequestController extends Controller
         $jenisrequest = Jenisrequest::findOrFail($id);
         $jenisrequest->kode = $request->kode;
         $jenisrequest->name = $request->name;
-
+        $jenisrequest->nama_pic = $request->nama_pic;
         $jenisrequest->save();
         return redirect()->route('jenisrequest.index')->with('success','Data Berhasil di Update');
     }

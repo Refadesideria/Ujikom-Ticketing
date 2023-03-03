@@ -18,7 +18,7 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
         $customer = Customer::all();
-        return view('admin.customer.create', compact('customer'));
+        return view('admin.customer.index', compact('customer'));
     }
 
     /**
@@ -28,7 +28,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('admin.customer.index'); return view('customer.index');
+        return view('admin.customer.create'); return view('customer.index');
     }
 
     /**
@@ -45,6 +45,7 @@ class CustomerController extends Controller
             'no_telp' => 'numeric',
             'tanggal_request' => 'required',
             'tanggal_selesai' => 'required',
+            'request_perbaikan' => 'required',
             'deskripsi' => 'required',
 
         ];
@@ -54,6 +55,7 @@ class CustomerController extends Controller
             'no_telp.required' => 'no_telp harus di isi !',
             'tanggal_request.required' => 'tanggal_request harus di isi!',
             'tanggal_selesai.required' => 'tanggal_selesai harus di isi!',
+            'request_perbaikan.required' => 'harus di isi!',
             'deskripsi.required' => 'deskripsi harus di isi !',
             
         ];
@@ -65,6 +67,7 @@ class CustomerController extends Controller
         $customer->tanggal_request = $request->tanggal_request;
         $customer->tanggal_selesai = $request->tanggal_selesai;
         $customer->deskripsi = $request->deskripsi;
+        $customer->request_perbaikan = $request->request_perbaikan;
         $customer->save();
         return redirect()->route('customer.index')
         ->with('success', 'Data berhasil ditambah!');
@@ -110,6 +113,7 @@ class CustomerController extends Controller
             'tanggal_request' => 'required',
             'tanggal_selesai' => 'required',
             'deskripsi' => 'required',
+            'request_perbaikan' => 'required',
 
         ];
         $messages = [
@@ -119,6 +123,7 @@ class CustomerController extends Controller
             'tanggal_request.required' => 'tanggal_request harus di isi!',
             'tanggal_selesai.required' => 'tanggal_selesai harus di isi!',
             'deskripsi.required' => 'deskripsi harus di isi !',
+            'request_perbaikan.required' => 'harus di isi!',
         ];
 
         // $validation = Validator::make($request->all(), $rules, $messages);
@@ -134,6 +139,7 @@ class CustomerController extends Controller
         $customer->tanggal_request = $request->tanggal_request;
         $customer->tanggal_selesai = $request->tanggal_selesai;
         $customer->deskripsi = $request->deskripsi;
+        $customer->request_perbaikan = $request->request_perbaikan;
         $customer->save();
         return redirect()->route('customer.index')
         ->with('success', 'Data berhasil diedit!');

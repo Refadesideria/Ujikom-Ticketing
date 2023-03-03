@@ -18,7 +18,8 @@
                             <thead>
                                     <th>No</th>
                                     <th>Kode</th>
-                                    <th>Change Request</th>
+                                    <th>Jenis Request</th>
+                                    <th>Nama PIC</th>
                                     <th>Aksi</th>
 
                                 </thead>
@@ -29,6 +30,7 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->kode }}</td>
                                             <td>{{ $data->name }}</td>
+                                            <td>{{ $data->nama_pic }}</td>
 
                                             <td>
                                                 <form action="{{ route('jenisrequest.destroy', $data->id) }}" method="post">
